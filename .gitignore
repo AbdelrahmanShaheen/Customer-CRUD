@@ -1,0 +1,7 @@
+# Ignore files in backend directory
+backend/HELP.md
+backend/mvnw
+backend/mvnw.cmd
+
+# Ignore the target directory and its contents
+target/
