@@ -1,12 +1,24 @@
 package com.shaheen.customercrud;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
-
+@Entity
 public class Customer {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(
+            nullable = false
+    )
     private String name;
+    @Column(
+            nullable = false
+    )
     private String email;
+    @Column(
+            nullable = false
+    )
     private Integer age;
 
     public Customer() {
