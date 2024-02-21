@@ -42,4 +42,8 @@ public class CustomerJPADataAccessService implements CustomerDao{
         return customerRepository.existsPersonById(id);
     }
 
+    @Override
+    public void updateCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
 }

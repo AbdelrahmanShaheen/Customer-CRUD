@@ -1,6 +1,7 @@
 package com.shaheen.customercrud;
 
 import com.shaheen.exception.DuplicateResourceException;
+import com.shaheen.exception.RequestValidationException;
 import com.shaheen.exception.ResourceNotFound;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -45,5 +46,32 @@ public class CustomerService {
             );
         }
         customerDao.deleteCustomerById(id);
+    }
+    public void updateCustomer(Integer id, CustomerUpdateRequest customerUpdateRequest){
+        Customer customer = getCustomer(id);
+        String name = customerUpdateRequest.name();
+        String email = customerUpdateRequest.email();
+        Integer age = customerUpdateRequest.age();
+
+        boolean changes = false;
+        if(name != null && !customer.getName().equals(name)){
+            customer.setName(name);
+            changes = true;
+        }
+        if(age != null && !customer.getAge().equals(age)){
+            customer.setAge(age);
+            changes = true;
+        }
+        if(email != null && !customer.getEmail().equals(email)){
+            if(customerDao.existsPersonWithEmail(email)){
+                throw new DuplicateResourceException("email already taken");
+            }
+            customer.setEmail(email);
+            changes = true;
+        }
+        if(!changes){
+            throw new RequestValidationException("no data changes found");
+        }
+        customerDao.updateCustomer(customer);
     }
 }
