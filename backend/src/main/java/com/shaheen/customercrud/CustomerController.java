@@ -1,9 +1,6 @@
 package com.shaheen.customercrud;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,18 @@ public class CustomerController {
     public Customer getCustomer(
             @PathVariable("customerId") Integer customerId) {
         return customerService.getCustomer(customerId);
+    }
+    @PostMapping
+    public void registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
+        customerService.addCustomer(customerRegistrationRequest);
+    }
+    @DeleteMapping("{customerId}")
+    public void removeCustomer(@PathVariable("customerId") Integer customerId){
+        customerService.removeCustomer(customerId);
+    }
+    @PutMapping("{customerId}")
+    public void updateCustomer(@PathVariable("customerId") Integer customerId,
+                               @RequestBody CustomerUpdateRequest customerUpdateRequest){
+        customerService.updateCustomer(customerId ,customerUpdateRequest);
     }
 }
