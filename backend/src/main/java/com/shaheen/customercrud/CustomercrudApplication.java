@@ -1,5 +1,6 @@
 package com.shaheen.customercrud;
 
+import com.github.javafaker.Faker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @SpringBootApplication
 public class CustomercrudApplication {
@@ -17,21 +19,15 @@ public class CustomercrudApplication {
 	@Bean
 	public CommandLineRunner runner(CustomerRepository customerRepository){
 		return args -> {
-
-			Customer alex = new Customer(
-					1,
-					"Alex",
-					"alex@gmail.com",
-					21
-			);
-			Customer jamila = new Customer(
-					2,
-					"Jamila",
-					"jamila@gmail.com",
-					24
-			);
-			customerRepository.saveAll(List.of(alex,jamila));
+			var faker = new Faker();
+			var name = faker.name();
+			Random random = new Random();
+			var customer = new Customer(
+				name.firstName() + " " + name.lastName(),
+					name.firstName().toLowerCase() + "." + name.lastName().toLowerCase() + "@gmail.com",
+				random.nextInt(16,99)
+					);
+			customerRepository.save(customer);
 		};
 	}
-
 }
