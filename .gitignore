@@ -2,6 +2,6 @@
 backend/HELP.md
 backend/mvnw
 backend/mvnw.cmd
-
+backend/.idea/inspectionProfiles/
 # Ignore the target directory and its contents
 target/
