@@ -14,7 +14,16 @@ services:
     networks:
       - db
     restart: unless-stopped
-
+  customer-crud-api:
+    container_name: customer-crud-api
+    image: shaheenabdelrahman/customercrud-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/customer
+    ports:
+      - "8088:8080"
+    networks:
+      - db
+    restart: unless-stopped
 networks:
   db:
     driver: bridge

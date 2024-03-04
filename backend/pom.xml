@@ -8,11 +8,16 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.shaheen</groupId>
-	<artifactId>customercrud</artifactId>
+	<artifactId>customercrud-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>customercrud</name>
 	<description>Demo project for Spring Boot</description>
+	<organization>
+		<name>shaheenabdelrahman</name>
+	</organization>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -86,6 +91,7 @@
 						</goals>
 						<configuration>
 							<arguments>
+								<!--used for overriding server port(giving a random port in integration testing-->
 								<argument>--server.port=${tomcat.http.port}</argument>
 							</arguments>
 						</configuration>
@@ -139,7 +145,28 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.1</version>
+				<configuration>
+					<from>
+						<image>eclipse-temurin:17</image>
+						<platforms>
+							<platform>
+								<architecture>amd64</architecture>
+								<os>linux</os>
+							</platform>
+						</platforms>
+					</from>
+					<to>
+						<image>docker.io/${organization.name}/${project.artifactId}:${project.version}</image>
+						<tags>
+							<tag>latest</tag>
+						</tags>
+					</to>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
