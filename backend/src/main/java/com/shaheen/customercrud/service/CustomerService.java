@@ -1,8 +1,12 @@
-package com.shaheen.customercrud;
+package com.shaheen.customercrud.service;
 
-import com.shaheen.exception.DuplicateResourceException;
-import com.shaheen.exception.RequestValidationException;
-import com.shaheen.exception.ResourceNotFound;
+import com.shaheen.customercrud.requestEntity.CustomerRegistrationRequest;
+import com.shaheen.customercrud.requestEntity.CustomerUpdateRequest;
+import com.shaheen.customercrud.dao.CustomerDao;
+import com.shaheen.customercrud.entity.Customer;
+import com.shaheen.customercrud.exception.DuplicateResourceException;
+import com.shaheen.customercrud.exception.RequestValidationException;
+import com.shaheen.customercrud.exception.ResourceNotFound;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 

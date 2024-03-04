@@ -1,11 +1,13 @@
-package com.shaheen.customercrud;
+package com.shaheen.customercrud.dao;
 
+import com.shaheen.customercrud.repository.CustomerRepository;
+import com.shaheen.customercrud.entity.Customer;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 @Repository("jpa")
-public class CustomerJPADataAccessService implements CustomerDao{
+public class CustomerJPADataAccessService implements CustomerDao {
     private final CustomerRepository customerRepository;
 
     public CustomerJPADataAccessService(CustomerRepository customerRepository) {

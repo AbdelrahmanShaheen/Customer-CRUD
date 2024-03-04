@@ -1,4 +1,4 @@
-package com.shaheen.customercrud;
+package com.shaheen.customercrud.entity;
 
 import jakarta.persistence.*;
 

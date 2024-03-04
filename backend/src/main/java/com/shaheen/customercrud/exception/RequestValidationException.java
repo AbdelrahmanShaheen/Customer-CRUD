@@ -1,4 +1,4 @@
-package com.shaheen.exception;
+package com.shaheen.customercrud.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

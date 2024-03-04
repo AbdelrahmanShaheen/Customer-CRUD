@@ -1,6 +1,7 @@
-package com.shaheen.customercrud;
+package com.shaheen.customercrud.dao;
 
 
+import com.shaheen.customercrud.entity.Customer;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

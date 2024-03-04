@@ -1,13 +1,13 @@
-package com.shaheen.customercrud;
+package com.shaheen.customercrud.dao;
 
+import com.shaheen.customercrud.entity.Customer;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 @Repository("jdbc")
-public class CustomerJDBCDataAccessService implements CustomerDao{
+public class CustomerJDBCDataAccessService implements CustomerDao {
     private final JdbcTemplate jdbcTemplate;
     private final CustomerRowMapper customerRowMapper;
 

@@ -1,4 +1,6 @@
-package com.shaheen.customercrud;
+package com.shaheen.customercrud.dao;
+
+import com.shaheen.customercrud.entity.Customer;
 
 import java.util.List;
 import java.util.Optional;

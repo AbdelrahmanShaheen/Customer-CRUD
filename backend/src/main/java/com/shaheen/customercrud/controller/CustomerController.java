@@ -1,5 +1,9 @@
-package com.shaheen.customercrud;
+package com.shaheen.customercrud.controller;
 
+import com.shaheen.customercrud.requestEntity.CustomerRegistrationRequest;
+import com.shaheen.customercrud.service.CustomerService;
+import com.shaheen.customercrud.requestEntity.CustomerUpdateRequest;
+import com.shaheen.customercrud.entity.Customer;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
