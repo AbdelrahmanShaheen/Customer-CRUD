@@ -1,5 +1,8 @@
 package com.shaheen.customercrud;
 
+import com.shaheen.customercrud.dao.CustomerJPADataAccessService;
+import com.shaheen.customercrud.entity.Customer;
+import com.shaheen.customercrud.repository.CustomerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

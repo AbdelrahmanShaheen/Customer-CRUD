@@ -1,8 +1,13 @@
 package com.shaheen.customercrud;
 
-import com.shaheen.exception.DuplicateResourceException;
-import com.shaheen.exception.RequestValidationException;
-import com.shaheen.exception.ResourceNotFound;
+import com.shaheen.customercrud.dao.CustomerDao;
+import com.shaheen.customercrud.entity.Customer;
+import com.shaheen.customercrud.requestEntity.CustomerRegistrationRequest;
+import com.shaheen.customercrud.requestEntity.CustomerUpdateRequest;
+import com.shaheen.customercrud.service.CustomerService;
+import com.shaheen.customercrud.exception.DuplicateResourceException;
+import com.shaheen.customercrud.exception.RequestValidationException;
+import com.shaheen.customercrud.exception.ResourceNotFound;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

@@ -1,9 +1,9 @@
 package com.shaheen.journey;
 
 import com.github.javafaker.*;
-import com.shaheen.customercrud.Customer;
-import com.shaheen.customercrud.CustomerRegistrationRequest;
-import com.shaheen.customercrud.CustomerUpdateRequest;
+import com.shaheen.customercrud.entity.Customer;
+import com.shaheen.customercrud.requestEntity.CustomerRegistrationRequest;
+import com.shaheen.customercrud.requestEntity.CustomerUpdateRequest;
 import com.shaheen.customercrud.CustomercrudApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

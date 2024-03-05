@@ -1,6 +1,9 @@
 package com.shaheen.customercrud;
 
 import com.shaheen.AbstractTestContainers;
+import com.shaheen.customercrud.dao.CustomerJDBCDataAccessService;
+import com.shaheen.customercrud.dao.CustomerRowMapper;
+import com.shaheen.customercrud.entity.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

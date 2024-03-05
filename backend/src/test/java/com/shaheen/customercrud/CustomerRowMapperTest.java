@@ -1,6 +1,7 @@
 package com.shaheen.customercrud;
 
-import org.checkerframework.checker.units.qual.C;
+import com.shaheen.customercrud.dao.CustomerRowMapper;
+import com.shaheen.customercrud.entity.Customer;
 import org.junit.jupiter.api.Test;
 
 import java.sql.ResultSet;
