@@ -4,6 +4,8 @@ import com.shaheen.customercrud.requestEntity.CustomerRegistrationRequest;
 import com.shaheen.customercrud.service.CustomerService;
 import com.shaheen.customercrud.requestEntity.CustomerUpdateRequest;
 import com.shaheen.customercrud.entity.Customer;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,22 +20,24 @@ public class CustomerController {
     }
 
     @GetMapping
-    public List<Customer> getCustomers() {
-        return customerService.getAllCustomers();
+    public ResponseEntity<List<Customer>> getCustomers() {
+        return new ResponseEntity<>(customerService.getAllCustomers(), HttpStatus.OK);
     }
 
     @GetMapping("{customerId}")
-    public Customer getCustomer(
+    public ResponseEntity<Customer> getCustomer(
             @PathVariable("customerId") Integer customerId) {
-        return customerService.getCustomer(customerId);
+        return new ResponseEntity<>(customerService.getCustomer(customerId) ,HttpStatus.OK);
     }
     @PostMapping
-    public void registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
+    public ResponseEntity<String> registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
         customerService.addCustomer(customerRegistrationRequest);
+        return new ResponseEntity<>("Customer is registered successfully",HttpStatus.CREATED);
     }
     @DeleteMapping("{customerId}")
-    public void removeCustomer(@PathVariable("customerId") Integer customerId){
+    public ResponseEntity<?> removeCustomer(@PathVariable("customerId") Integer customerId){
         customerService.removeCustomer(customerId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @PutMapping("{customerId}")
     public void updateCustomer(@PathVariable("customerId") Integer customerId,
