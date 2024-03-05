@@ -32,10 +32,26 @@ Customer CRUD restful api where you can create ,update ,delete and get a custome
 ```
 - About  [jib](https://github.com/GoogleContainerTools/jib)
 - How to use & configure jib with maven blugin [link](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin)
+
+## Technologies Used
+- Java 
+- Spring Boot
+- Spring Data JPA
+- Spring JDBC Template
+- Maven
+- Docker
+- PostgreSQL
+- JUnit5
+- Mockito
+- TestContainers
+- Jib
+
 ## ToDo
 
 
 - [ ] Deploy on AWS
+
+- [ ] JWT Security 
 
 - [ ] Continuos Integration
 
