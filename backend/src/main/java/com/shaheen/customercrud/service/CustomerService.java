@@ -29,6 +29,7 @@ public class CustomerService {
                         "customer with id [%s] not found".formatted(id)
                 ));
     }
+
     public void addCustomer(CustomerRegistrationRequest customerRegistrationRequest){
         // check unique email
         String email = customerRegistrationRequest.email();
@@ -43,6 +44,7 @@ public class CustomerService {
 
         customerDao.insertCustomer(customer);
     }
+
     public void removeCustomer(Integer id){
         if(!customerDao.existsPersonWithId(id)){
             throw new ResourceNotFound(
@@ -51,6 +53,7 @@ public class CustomerService {
         }
         customerDao.deleteCustomerById(id);
     }
+
     public void updateCustomer(Integer id, CustomerUpdateRequest customerUpdateRequest){
         Customer customer = getCustomer(id);
         String name = customerUpdateRequest.name();

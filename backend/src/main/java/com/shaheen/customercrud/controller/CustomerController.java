@@ -29,17 +29,20 @@ public class CustomerController {
             @PathVariable("customerId") Integer customerId) {
         return customerService.getCustomer(customerId);
     }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public String registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
         customerService.addCustomer(customerRegistrationRequest);
         return "Customer is registered successfully";
     }
+
     @DeleteMapping("{customerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeCustomer(@PathVariable("customerId") Integer customerId){
         customerService.removeCustomer(customerId);
     }
+
     @PutMapping("{customerId}")
     public void updateCustomer(@PathVariable("customerId") Integer customerId,
                                @RequestBody CustomerUpdateRequest customerUpdateRequest){
