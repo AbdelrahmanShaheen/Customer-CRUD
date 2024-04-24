@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/customers")
+@RequestMapping("/customers")
 public class CustomerController {
     private final CustomerService customerService;
 
@@ -20,24 +20,25 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Customer>> getCustomers() {
-        return new ResponseEntity<>(customerService.getAllCustomers(), HttpStatus.OK);
+    public List<Customer> getCustomers() {
+        return customerService.getAllCustomers();
     }
 
     @GetMapping("{customerId}")
-    public ResponseEntity<Customer> getCustomer(
+    public Customer getCustomer(
             @PathVariable("customerId") Integer customerId) {
-        return new ResponseEntity<>(customerService.getCustomer(customerId) ,HttpStatus.OK);
+        return customerService.getCustomer(customerId);
     }
     @PostMapping
-    public ResponseEntity<String> registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
+    @ResponseStatus(HttpStatus.CREATED)
+    public String registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
         customerService.addCustomer(customerRegistrationRequest);
-        return new ResponseEntity<>("Customer is registered successfully",HttpStatus.CREATED);
+        return "Customer is registered successfully";
     }
     @DeleteMapping("{customerId}")
-    public ResponseEntity<?> removeCustomer(@PathVariable("customerId") Integer customerId){
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeCustomer(@PathVariable("customerId") Integer customerId){
         customerService.removeCustomer(customerId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @PutMapping("{customerId}")
     public void updateCustomer(@PathVariable("customerId") Integer customerId,

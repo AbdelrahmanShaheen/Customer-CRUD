@@ -27,7 +27,7 @@ public class CustomerIntegrationTest {
 
     private final Faker faker = new Faker();
     private final Random random = new Random();
-    private static final String CUSTOMER_URI = "/api/v1/customers";
+    private static final String CUSTOMER_URI = "/customers";
     @Test
     void canRegisterACustomer() {
         // create registration request
@@ -45,7 +45,7 @@ public class CustomerIntegrationTest {
                 .body(Mono.just(request) ,CustomerRegistrationRequest.class)
                 .exchange()
                 .expectStatus()
-                .isOk();
+                .isCreated();
         // get all customers
         List<Customer> customers = webTestClient
                 .get()
@@ -96,7 +96,7 @@ public class CustomerIntegrationTest {
                 .body(Mono.just(request) ,CustomerRegistrationRequest.class)
                 .exchange()
                 .expectStatus()
-                .isOk();
+                .isCreated();
         // get all customers
         List<Customer> customers = webTestClient
                 .get()
@@ -121,7 +121,7 @@ public class CustomerIntegrationTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus()
-                .isOk();
+                .isNoContent();
 
         // get customer by id
         webTestClient.get()
@@ -148,7 +148,7 @@ public class CustomerIntegrationTest {
                 .body(Mono.just(request) ,CustomerRegistrationRequest.class)
                 .exchange()
                 .expectStatus()
-                .isOk();
+                .isCreated();
         // get all customers
         List<Customer> customers = webTestClient
                 .get()
